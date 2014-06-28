@@ -1,0 +1,7 @@
+{
+    "require": {
+        "symfony/http-foundation": "*",
+        "symfony/routing": "*",
+        "monolog/monolog": "~1.7"
+    }
+}
