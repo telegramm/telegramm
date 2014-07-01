@@ -28,39 +28,21 @@
 <div id="top">
     <div class="container">
         <div class="telegramm-line">
-            <form>
-                <label>#</label> <input type="text" placeholder="send your telegramm">
+            <form method="post" id="sender">
+                <label>#</label> <input name="command" type="text" placeholder="send your telegramm" />
             </form>
         </div>
     </div>
 </div>
 <div class="container">
-<?php /*
-    <div class="log">
-        <div class="entry">
+
+    <div class="log" >
+        <div class="entry" style="display: none;">
             <div class="telegramm">sudo composer install</div>
             <div class="time">12:34 21.06.2014</div>
             <pre>Stdin</pre>
         </div>
 
-        <div class="entry">
-            <div class="telegramm">sudo composer install</div>
-            <div class="time">12:34 21.06.2014</div>
-            <pre>Stdin</pre>
-        </div>
-
-        <div class="entry">
-            <div class="telegramm">sudo composer install</div>
-            <div class="time">12:34 21.06.2014</div>
-            <pre>Stdin</pre>
-        </div>
-
-        <div class="entry">
-            <div class="telegramm">sudo composer install</div>
-            <div class="time">12:34 21.06.2014</div>
-            <pre>Stdin</pre>
-        </div>
-*/ ?>
     </div>
 </div>
 
@@ -75,5 +57,6 @@
 <!-- Placed at the end of the document so the pages load faster -->
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
 <script src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
+<script src="/assets/js/telegramm.js"></script>
 </body>
 </html>

@@ -28,11 +28,15 @@ class RunCommand
     {
         $request = json_decode(file_get_contents("php://input"), true);
 
-        if (!array_key_exists('command', $request)) return JsonResponse::create(['error' => 'Request a command'], 400)->send();
+        foreach ($request as $row) {
+            $params[$row['name']] = $row['value'];
+        }
+
+        if (!array_key_exists('command', $params)) return JsonResponse::create(['error' => 'Request a command'], 400)->send();
 
         $service = new \Telegramm\Command\RunCommand(new \Telegramm\Command\Repository());
 
-        $result = $service->runCommand($request['command']);
+        $result = $service->runCommand($params['command']);
 
         return JsonResponse::create(['result' => $result], 200);
     }
