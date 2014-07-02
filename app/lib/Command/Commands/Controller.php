@@ -52,4 +52,12 @@ class Controller implements CommandInterface
         return $result;
     }
 
+    /**
+     * @return int
+     */
+    public function getType()
+    {
+        return CommandInterface::TYPE_CONTROLLER;
+    }
+
 }

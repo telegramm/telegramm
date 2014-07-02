@@ -11,6 +11,7 @@
 
 namespace Telegramm\Command;
 
+use Telegramm\Command\Commands\Command;
 use Telegramm\Command\Commands\Controller;
 use Telegramm\Command\Commands\CommandInterface;
 use Telegramm\Log;
@@ -35,7 +36,8 @@ class CommandFactory
         switch ($components['type']) {
             case 'command':
             case CommandInterface::TYPE_COMMAND:
-                die('Need to implement...');
+                if (!array_key_exists('command', $components)) throw new \Exception('Controller array is missing');
+                return new Command($components['name'], $components['command']);
                 break;
             case 'script':
             case CommandInterface::TYPE_SCRIPT:

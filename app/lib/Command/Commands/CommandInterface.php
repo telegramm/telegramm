@@ -37,4 +37,9 @@ interface CommandInterface
      * @return mixed
      */
     public function execute();
+
+    /**
+     * @return int
+     */
+    public function getType();
 }

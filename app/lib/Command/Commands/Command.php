@@ -19,14 +19,19 @@ namespace Telegramm\Command\Commands;
  */
 class Command implements CommandInterface
 {
+    protected $name;
+    protected $command;
+
     /**
      * Instantiate Command Object
      *
      * @param string $name
+     * @param string $command
      */
-    public function __construct($name)
+    public function __construct($name, $command='')
     {
-        // TODO: Implement __construct() method.
+        $this->name = $name;
+        $this->command = $command;
     }
 
     /**
@@ -36,7 +41,15 @@ class Command implements CommandInterface
      */
     public function execute()
     {
-        // TODO: Implement execute() method.
+        return shell_exec($this->command);
+    }
+
+    /**
+     * @return int
+     */
+    public function getType()
+    {
+        return CommandInterface::TYPE_COMMAND;
     }
 
 }
