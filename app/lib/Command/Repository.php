@@ -165,16 +165,24 @@ class Repository implements CommandRepositoryInterface
             'name'          => 'list',
             'type'          => 'controller',
             'controller'    => array('\Controllers\ListCommand', 'fullText'),
-            'title'         => '',
+            'title'         => 'List of available commands',
             'description'   => ''
         ];
         $this->compiledList[] = 'list';
+
+        $this->compiled['help'] = [
+            'name'          => 'help',
+            'type'          => 'alias',
+            'alias'         => 'list',
+            'title'         => 'Alias of #list'
+        ];
+        $this->compiledList[] = 'help';
 
         $this->compiled['compile'] = [
             'name'          => 'compile',
             'type'          => 'controller',
             'controller'    => array('\Controllers\Manage', 'compile'),
-            'title'         => '',
+            'title'         => 'Compile repository',
             'description'   => ''
         ];
         $this->compiledList[] = 'compile';

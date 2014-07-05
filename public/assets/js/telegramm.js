@@ -26,6 +26,15 @@ $('#sender').submit(function(e){
         img.remove();
         row.slideDown(300);
 
+        row.find('a').click(function(ee){
+
+            ee.preventDefault();
+
+            $('input[name="command"]').val($(this).attr('rel'));
+
+            $('input[name="command"]').parent('form').submit();
+        });
+
         $('input[name="command"]').val('');
 
         $('input[name="command"]').focus();
@@ -34,6 +43,12 @@ $('#sender').submit(function(e){
         $('#ind').children('span').toggle();
 
     }, 'json').fail(function () {
+        $('#ind').children('img').toggle();
+
+        $('#ind').children('span').toggle();
+
+        img.remove();
+
         alert('Problem connecting to API');
     });
 

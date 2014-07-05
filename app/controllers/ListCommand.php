@@ -52,9 +52,14 @@ class ListCommand
         $rtn = "Available commands: \n\n";
 
         foreach ($repository->all() as $command) {
-            $rtn .= "" . $command['name'] . "\t\t" . $command['title'] . "\n";
+            $rtn .= ($command['type']=='alias'?('*'.$command['name']):('<a rel="' . $command['name'] . '">' . $command['name'] . '</a>')) . "\t\t" . self::process($command['title']) . "\n";
         }
 
         return $rtn;
+    }
+
+    public function process($text)
+    {
+        return preg_replace ('/#([a-z0-9-]+)/i', "<a rel='$1'>#$1</a>", $text);
     }
 }
