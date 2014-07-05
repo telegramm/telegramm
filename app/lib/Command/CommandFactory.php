@@ -14,6 +14,7 @@ namespace Telegramm\Command;
 use Telegramm\Command\Commands\Command;
 use Telegramm\Command\Commands\Controller;
 use Telegramm\Command\Commands\CommandInterface;
+use Telegramm\Command\Commands\SystemController;
 use Telegramm\Log;
 
 /**
@@ -45,8 +46,12 @@ class CommandFactory
                 break;
             case 'controller':
             case CommandInterface::TYPE_CONTROLLER:
+                die('Need to implement...');
+                break;
+            case 'system_controller':
+            case CommandInterface::TYPE_SYSTEM_CONTROLLER:
                 if (!array_key_exists('controller', $components)) throw new \Exception('Controller array is missing');
-                return new Controller($components['name'], $components['controller']);
+                return new SystemController($components['name'], $components['controller']);
                 break;
             case 'alias':
             case CommandInterface::TYPE_ALIAS:

@@ -23,6 +23,7 @@ interface CommandInterface
     const TYPE_COMMAND = 2;
     const TYPE_SCRIPT = 4;
     const TYPE_CONTROLLER = 8;
+    const TYPE_SYSTEM_CONTROLLER = 16;
 
     /**
      * Instantiate Command Object

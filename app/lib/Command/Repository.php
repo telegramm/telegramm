@@ -112,7 +112,11 @@ class Repository implements CommandRepositoryInterface
     private function compileCommands($content)
     {
         if (is_array($content)) {
-            if (array_key_exists('name', $content)) {
+            if (
+                array_key_exists('name', $content) &&
+                array_key_exists('type', $content)
+            ) {
+                if ($content['type'] == 'system_controller') return true;
 
                 $this->compiled[strtolower($content['name'])] = $content;
                 $this->compiledList[] = strtolower($content['name']);
@@ -163,7 +167,7 @@ class Repository implements CommandRepositoryInterface
     {
         $this->compiled['list'] = [
             'name'          => 'list',
-            'type'          => 'controller',
+            'type'          => 'system_controller',
             'controller'    => array('\Controllers\ListCommand', 'fullText'),
             'title'         => 'List of available commands',
             'description'   => ''
@@ -180,7 +184,7 @@ class Repository implements CommandRepositoryInterface
 
         $this->compiled['compile'] = [
             'name'          => 'compile',
-            'type'          => 'controller',
+            'type'          => 'system_controller',
             'controller'    => array('\Controllers\Manage', 'compile'),
             'title'         => 'Compile repository',
             'description'   => ''
