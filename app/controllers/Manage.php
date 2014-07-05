@@ -29,7 +29,7 @@ class Manage
         $repository = new \Telegramm\Command\Repository();
 
         if ($repository->compile()) {
-            return JsonResponse::create('Command list successfully compiled', 200);
+            return JsonResponse::create("Command list successfully compiled", 200);
         }
 
         return JsonResponse::create('Problem while compiling commands list', 400);

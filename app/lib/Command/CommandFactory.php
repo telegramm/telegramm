@@ -36,7 +36,7 @@ class CommandFactory
         switch ($components['type']) {
             case 'command':
             case CommandInterface::TYPE_COMMAND:
-                if (!array_key_exists('command', $components)) throw new \Exception('Controller array is missing');
+                if (!array_key_exists('command', $components)) throw new \Exception('Command is missing');
                 return new Command($components['name'], $components['command']);
                 break;
             case 'script':
@@ -47,6 +47,18 @@ class CommandFactory
             case CommandInterface::TYPE_CONTROLLER:
                 if (!array_key_exists('controller', $components)) throw new \Exception('Controller array is missing');
                 return new Controller($components['name'], $components['controller']);
+                break;
+            case 'alias':
+            case CommandInterface::TYPE_ALIAS:
+                if (!array_key_exists('alias', $components))
+                    throw new \Exception('Controller array is missing');
+
+                $repository = new Repository();
+
+                if (!($command = $repository->find($components['alias'])))
+                    throw new \Exception('Command doesn\'t exists');
+
+                return self::create($command);
                 break;
             default:
                 Log::error('Command type mus be valid type to instantiate command instance.');

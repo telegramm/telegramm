@@ -35,14 +35,16 @@ class RunCommand
      */
     public function runCommand($command)
     {
-        $command = $this->commandRepository->find($command);
+        if (!($command = $this->commandRepository->find($command))) {
+            return 'Command doesn\'t exists';
+        }
 
         try {
             $instance = \Telegramm\Command\CommandFactory::create($command);
 
             return $instance->execute();
         } catch (\Exception $e) {
-            return 'Some problems';
+            return $e->getMessage();
         }
     }
 }
