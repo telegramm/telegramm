@@ -29,7 +29,11 @@
     <div class="container">
         <div class="telegramm-line">
             <form method="post" id="sender">
-                <label>#</label> <input name="command" type="text" placeholder="send your telegramm" autocomplete="off" />
+                <label id="ind" style="width: 16px; text-align: center;">
+                    <span>#</span>
+                    <img src="/assets/img/ajax-loader.gif" style="display: none;" />
+                </label>
+                <input name="command" type="text" placeholder="send your telegramm" autocomplete="off" />
             </form>
         </div>
     </div>
