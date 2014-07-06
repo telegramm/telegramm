@@ -35,6 +35,8 @@ class RunCommand
      */
     public function runCommand($command)
     {
+        if ($command == '') $command = 'null';
+
         if (!($command = $this->commandRepository->find($command))) {
             return 'Command doesn\'t exists';
         }

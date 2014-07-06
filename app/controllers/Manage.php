@@ -9,8 +9,6 @@
  * file that was distributed with this source code.
  */
 
-
-use Symfony\Component\HttpFoundation\JsonResponse;
 namespace Controllers;
 
 /**
@@ -22,6 +20,8 @@ namespace Controllers;
 class Manage
 {
     /**
+     * Compile Commands Repository - TelegrammUI
+     *
      * @return \Symfony\Component\HttpFoundation\Response
      */
     public function compile()
@@ -29,9 +29,16 @@ class Manage
         $repository = new \Telegramm\Command\Repository();
 
         if ($repository->compile()) {
-            return JsonResponse::create("Command list successfully compiled", 200);
+
+            $rtn  = " __\n";
+            $rtn .= "/   _  _  _ .| _ _|\n";
+            $rtn .= "\__(_)||||_)||(-(_|\n";
+            $rtn .= "         |\n\n";
+            $rtn .= "Command list successfully compiled";
+
+            return $rtn;
         }
 
-        return JsonResponse::create('Problem while compiling commands list', 400);
+        return 'Problem while compiling commands list';
     }
 }

@@ -190,5 +190,18 @@ class Repository implements CommandRepositoryInterface
             'description'   => ''
         ];
         $this->compiledList[] = 'compile';
+
+        $this->compiled['hello'] = [
+            'name'          => 'hello',
+            'type'          => 'system_controller',
+            'controller'    => array('\Controllers\Misc', 'hello'),
+        ];
+        $this->compiledList[] = 'hello';
+
+        $this->compiled['null'] = [
+            'name'          => 'null',
+            'type'          => 'system_controller',
+            'controller'    => array('\Controllers\Misc', 'null'),
+        ];
     }
 }
