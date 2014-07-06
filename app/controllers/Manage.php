@@ -9,9 +9,9 @@
  * file that was distributed with this source code.
  */
 
-namespace controllers;
 
 use Symfony\Component\HttpFoundation\JsonResponse;
+namespace Controllers;
 
 /**
  * Class Manage

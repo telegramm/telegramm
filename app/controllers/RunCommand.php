@@ -9,7 +9,7 @@
  * file that was distributed with this source code.
  */
 
-namespace controllers;
+namespace Controllers;
 
 use Symfony\Component\HttpFoundation\JsonResponse;
 

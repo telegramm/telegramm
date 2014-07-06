@@ -26,7 +26,7 @@ define('PATH', __DIR__.'/../');
 
 $loader = require_once(PATH.'vendor/autoload.php');
 
-$loader->addPsr4('Controllers\\', PATH.'app/controllers');
+$loader->addPsr4('Controllers\\', PATH.'app/Controllers');
 $loader->addPsr4('Telegramm\\', PATH.'app/lib/');
 
 $routes = require_once(PATH.'app/routes.php');

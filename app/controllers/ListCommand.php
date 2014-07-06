@@ -9,7 +9,7 @@
  * file that was distributed with this source code.
  */
 
-namespace controllers;
+namespace Controllers;
 
 use Telegramm\Command\Repository;
 use Symfony\Component\HttpFoundation\JsonResponse;
@@ -23,6 +23,8 @@ use Symfony\Component\HttpFoundation\JsonResponse;
 class ListCommand
 {
     /**
+     * Commands Names List - API Call
+     *
      * @return \Symfony\Component\HttpFoundation\Response
      */
     public function short()
@@ -33,6 +35,8 @@ class ListCommand
     }
 
     /**
+     * Commands List - API Call
+     *
      * @return \Symfony\Component\HttpFoundation\Response
      */
     public function full()
@@ -43,13 +47,19 @@ class ListCommand
     }
 
     /**
+     * Commands List - TelegrammUI
+     *
      * @return string
      */
     public function fullText()
     {
         $repository = new Repository();
 
-        $rtn = "Available commands: \n\n";
+        $rtn  = " __\n";
+        $rtn .= "/   _  _  _  _  _  _| _  |  . _|_\n";
+        $rtn .= "\__(_)||||||(_|| )(_|_)  |__|_)|_ \n\n";
+
+        $rtn .= "Available commands: \n";
 
         foreach ($repository->all() as $command) {
             $rtn .= ($command['type']=='alias'?('*'.$command['name']):('<a rel="' . $command['name'] . '">' . $command['name'] . '</a>')) . "\t\t" . self::process($command['title']) . "\n";
