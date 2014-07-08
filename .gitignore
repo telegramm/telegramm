@@ -74,3 +74,5 @@ composer.lock
 app/storage/[^.gitkeep]*
 
 config/commands/*.json
+config/scripts/*.sh
+config/controllers/*.php

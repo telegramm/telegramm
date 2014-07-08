@@ -14,6 +14,7 @@ namespace Telegramm\Command;
 use Telegramm\Command\Commands\Command;
 use Telegramm\Command\Commands\Controller;
 use Telegramm\Command\Commands\CommandInterface;
+use Telegramm\Command\Commands\Script;
 use Telegramm\Command\Commands\SystemController;
 use Telegramm\Log;
 
@@ -42,7 +43,8 @@ class CommandFactory
                 break;
             case 'script':
             case CommandInterface::TYPE_SCRIPT:
-                die('Need to implement...');
+                if (!array_key_exists('script', $components)) throw new \Exception('Script is missing');
+                return new Script($components['name'], $components['script']);
                 break;
             case 'controller':
             case CommandInterface::TYPE_CONTROLLER:
