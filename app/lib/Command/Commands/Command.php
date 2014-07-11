@@ -11,6 +11,8 @@
 
 namespace Telegramm\Command\Commands;
 
+use Telegramm\Command\Result;
+
 /**
  * Class Command
  *
@@ -37,11 +39,15 @@ class Command implements CommandInterface
     /**
      * Execute Command
      *
-     * @return mixed
+     * @return \Telegramm\Command\ResultInterface;
      */
     public function execute()
     {
-        return shell_exec($this->command);
+        $result = new Result();
+        $result->setMessage(shell_exec($this->command));
+        $result->setCompleted();
+
+        return $result;
     }
 
     /**

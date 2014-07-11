@@ -35,7 +35,7 @@ interface CommandInterface
     /**
      * Execute Command
      *
-     * @return mixed
+     * @return \Telegramm\Command\ResultInterface;
      */
     public function execute();
 

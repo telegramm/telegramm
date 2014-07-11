@@ -10,6 +10,7 @@
  */
 
 namespace Controllers;
+use Telegramm\Command\Result;
 
 /**
  * Class Manage
@@ -36,7 +37,12 @@ class Manage
             $rtn .= "         |\n\n";
             $rtn .= "Command list successfully compiled";
 
-            return $rtn;
+            $result = new Result();
+
+            $result->setMessage($rtn);
+            $result->setCompleted();
+
+            return $result;
         }
 
         return 'Problem while compiling commands list';

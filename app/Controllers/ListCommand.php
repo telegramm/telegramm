@@ -13,6 +13,7 @@ namespace Controllers;
 
 use Telegramm\Command\Repository;
 use Symfony\Component\HttpFoundation\JsonResponse;
+use Telegramm\Command\Result;
 
 /**
  * Class ListCommand
@@ -49,7 +50,7 @@ class ListCommand
     /**
      * Commands List - TelegrammUI
      *
-     * @return string
+     * @return \Telegramm\Command\ResultInterface;
      */
     public function fullText()
     {
@@ -65,7 +66,12 @@ class ListCommand
             $rtn .= ($command['type']=='alias'?('*'.$command['name']):('<a rel="' . $command['name'] . '">' . $command['name'] . '</a>')) . "\t\t" . self::process($command['title']) . "\n";
         }
 
-        return $rtn;
+        $result = new Result();
+
+        $result->setMessage($rtn);
+        $result->setCompleted();
+
+        return $result;
     }
 
     public function process($text)

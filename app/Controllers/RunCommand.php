@@ -38,6 +38,6 @@ class RunCommand
 
         $result = $service->runCommand($params['command']);
 
-        return JsonResponse::create(['result' => $result], 200);
+        return JsonResponse::create(['result' => $result->getMessage()], 200);
     }
 }

@@ -31,7 +31,7 @@ class RunCommand
 
     /**
      * @param $command
-     * @return string
+     * @return \Telegramm\Command\ResultInterface;
      */
     public function runCommand($command)
     {

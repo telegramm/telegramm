@@ -10,6 +10,7 @@
  */
 
 namespace Controllers;
+use Telegramm\Command\Result;
 
 /**
  * Class Misc
@@ -45,7 +46,12 @@ class Misc
         $rtn .= "----------------------------------------------------\n";
         $rtn .= "telegramm 2014";
 
-        return $rtn;
+        $result = new Result();
+
+        $result->setMessage($rtn);
+        $result->setCompleted();
+
+        return $result;
     }
 
     /**
@@ -63,6 +69,11 @@ class Misc
         $ar[] = "    _/      _/  _/    _/  _/        _/     \n   _/_/    _/  _/    _/  _/        _/      \n  _/  _/  _/  _/    _/  _/        _/       \n _/    _/_/  _/    _/  _/        _/        \n_/      _/    _/_/    _/_/_/_/  _/_/_/_/ ";
         $ar[] = ".-..-..-..-..-.   .-.   \n| .` || || || |__ | |__ \n`-'`-'`----'`----'`----'";
 
-        return $ar[rand(0,6)] . "\n\nPlease type any command or type <a rel='help'>#help</a>...";
+        $result = new Result();
+
+        $result->setMessage($ar[rand(0,6)] . "\n\nPlease type any command or type <a rel='help'>#help</a>...");
+        $result->setCompleted();
+
+        return $result;
     }
 }

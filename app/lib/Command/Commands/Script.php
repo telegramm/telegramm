@@ -11,6 +11,8 @@
 
 namespace Telegramm\Command\Commands;
 
+use Telegramm\Command\Result;
+
 /**
  * Class Script
  *
@@ -38,13 +40,18 @@ class Script implements CommandInterface
      * Execute Command
      *
      * @throws \Exception
-     * @return mixed
+     * @return \Telegramm\Command\ResultInterface;
      */
     public function execute()
     {
         $filePath = PATH . 'config/scripts/' . $this->script;
         if (!file_exists($filePath)) throw new \Exception('Script file doesn\'t exists.');
-        return shell_exec('sh '. $filePath);
+
+        $result = new Result();
+        $result->setMessage(shell_exec('sh '. $filePath));
+        $result->setCompleted();
+
+        return $result;
     }
 
     /**
