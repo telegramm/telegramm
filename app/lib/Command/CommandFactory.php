@@ -48,7 +48,8 @@ class CommandFactory
                 break;
             case 'controller':
             case CommandInterface::TYPE_CONTROLLER:
-                die('Need to implement...');
+                if (!array_key_exists('controller', $components)) throw new \Exception('Controller array is missing');
+                return new SystemController($components['name'], $components['controller']);
                 break;
             case 'system_controller':
             case CommandInterface::TYPE_SYSTEM_CONTROLLER:

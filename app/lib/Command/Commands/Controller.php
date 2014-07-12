@@ -19,25 +19,38 @@ namespace Telegramm\Command\Commands;
  */
 class Controller implements CommandInterface
 {
+    protected $name;
+    protected $controller;
+
     /**
      * Instantiate Command Object
      *
      * @param string $name
+     * @param array  $controller
      */
-    public function __construct($name)
+    public function __construct($name, array $controller=[])
     {
-        // TODO: Implement __construct() method.
+        $this->name = $name;
+        $this->controller = $controller;
     }
 
     /**
      * Execute Command
      *
-     * @return mixed
+     * @throws \Exception
+     * @return \Telegramm\Command\ResultInterface;
      */
     public function execute()
     {
-        // TODO: Implement execute() method.
-        return ('Not Implemented');
+        if (!is_callable($this->controller)) throw new \Exception('Requested Controller is missing!');
+
+        $result = call_user_func($this->controller);
+
+        if ($result instanceof \Telegramm\Command\ResultInterface) {
+            return $result;
+        }
+
+        throw new \Exception('Controller must return proper result!');
     }
 
     /**
