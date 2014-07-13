@@ -32,6 +32,7 @@ class Controller implements CommandInterface
     {
         $this->name = $name;
         $this->controller = $controller;
+        $this->controller[0] = '\TelegrammControllers\\' . $this->controller[0];
     }
 
     /**
