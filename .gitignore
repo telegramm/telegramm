@@ -71,8 +71,18 @@ composer.lock
 .env.php
 ### EOF ### github/gitignore/Laravel4.gitignore
 
-app/storage/[^.gitkeep]*
+app/storage/*
+!app/storage/.gitkeep
 
-config/commands/*.json
-config/scripts/*.sh
-config/controllers/*.php
+config/commands/*
+!config/commands/.gitkeep
+!config/commands/example.json
+
+config/scripts/*
+!config/scripts/.gitkeep
+!config/scripts/example.sh
+
+config/controllers/*
+!config/controllers/.gitkeep
+!config/controllers/Example.php
+
