@@ -1,0 +1,20 @@
+[
+    {
+        "name": "system-ls",
+        "type": "script",
+        "script": "example.sh",
+        "title": "Example of 'script', list files and folders in app directory."
+    },
+    {
+        "name": "server-info",
+        "type": "controller",
+        "controller": ["Example", "serverinfo"],
+        "title": "Example of 'controller', shows $_SERVER array."
+    },
+    {
+        "name": "pwd",
+        "type": "command",
+        "command": "pwd",
+        "title": "Example of 'command', runs pwd command."
+    }
+]
