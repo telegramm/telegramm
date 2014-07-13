@@ -46,6 +46,8 @@ class RunCommand
 
             return $instance->execute();
         } catch (\Exception $e) {
+            \Telegramm\Log::error('Command execution throw exception: ' . $e->getMessage());
+
             return $e->getMessage();
         }
     }

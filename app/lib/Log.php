@@ -60,6 +60,7 @@ class Log
      */
     public static function debug($message, array $context = array())
     {
+        if (is_array($message)) $message = print_r($message, true);
         return self::getInstance()->logger->debug($message, $context);
     }
 
