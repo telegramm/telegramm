@@ -29,6 +29,8 @@ class Manage
     {
         $repository = new \Telegramm\Command\Repository();
 
+        $result = new Result();
+
         if ($repository->compile()) {
 
             $rtn  = " __\n";
@@ -37,7 +39,7 @@ class Manage
             $rtn .= "         |\n\n";
             $rtn .= "Command list successfully compiled";
 
-            $result = new Result();
+
 
             $result->setMessage($rtn);
             $result->setCompleted();
@@ -45,6 +47,9 @@ class Manage
             return $result;
         }
 
-        return 'Problem while compiling commands list';
+        $result->setMessage('Problem while compiling commands list');
+        $result->setFailed();
+
+        return $result;
     }
 }

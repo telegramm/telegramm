@@ -11,7 +11,7 @@
 
 namespace Controllers;
 
-use Symfony\Component\HttpFoundation\JsonResponse;
+use Telegramm\Response;
 
 /**
  * Class RunCommand
@@ -38,6 +38,6 @@ class RunCommand
 
         $result = $service->runCommand($params['command']);
 
-        return JsonResponse::create(['result' => $result->getMessage()], 200);
+        return Response::create(['result' => $result->getMessage()], 200);
     }
 }
