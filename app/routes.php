@@ -22,6 +22,8 @@ $routes = new RouteCollection();
 
 $routes->add('index', new Route('/', array('controller' => array('\Controllers\Index', 'index'))));
 
+$routes->add('typeaheadList', new Route('/list/typeahead', array('controller' => array('\Controllers\ListCommand', 'typeahead'))));
+
 $routes->add('shortList', new Route('/list', array('controller' => array('\Controllers\ListCommand', 'short'))));
 
 $routes->add('fullList', new Route('/list/full', array('controller' => array('\Controllers\ListCommand', 'full'))));

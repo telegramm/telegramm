@@ -47,6 +47,19 @@ class ListCommand
         return JsonResponse::create($repository->all());
     }
 
+    public function typeahead()
+    {
+        $repository = new Repository();
+
+        $rtn = [];
+
+        foreach ($repository->getList() as $val) {
+            $rtn[] = ['val' => $val];
+        }
+
+        return JsonResponse::create($rtn);
+    }
+
     /**
      * Commands List - TelegrammUI
      *
