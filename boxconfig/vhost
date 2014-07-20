@@ -1,0 +1,17 @@
+<VirtualHost *:80>
+    ServerName semaphore.local
+
+    DocumentRoot /var/www/html
+    <Directory />
+        Options FollowSymLinks
+            AllowOverride All
+    </Directory>
+
+    <Directory /var/www/html/>
+        Options Indexes FollowSymLinks MultiViews
+            AllowOverride All
+        Order allow,deny
+        allow from all
+    </Directory>
+
+</VirtualHost>
