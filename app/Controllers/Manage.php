@@ -39,8 +39,6 @@ class Manage
             $rtn .= "         |\n\n";
             $rtn .= "Command list successfully compiled";
 
-
-
             $result->setMessage($rtn);
             $result->setCompleted();
 
