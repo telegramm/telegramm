@@ -33,7 +33,8 @@
                     <span>#</span>
                     <img src="/assets/img/ajax-loader.gif" style="display: none;" />
                 </label>
-                <input name="command" type="text" placeholder="send your telegramm" autocomplete="off" />
+                <input name="command" id="command" type="text" placeholder="send your telegramm" autocomplete="off" />
+                <input type="submit" style="display: none;" />
             </form>
         </div>
     </div>
@@ -61,6 +62,7 @@
 <!-- Placed at the end of the document so the pages load faster -->
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
 <script src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
+<script src="/assets/js/typeahead.bundle.min.js"></script>
 <script src="/assets/js/telegramm.js"></script>
 </body>
 </html>

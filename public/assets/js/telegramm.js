@@ -53,3 +53,28 @@ $('#sender').submit(function(e){
     });
 
 });
+
+//var engine = new Bloodhound({
+//    name: 'commands',
+//    prefetch: '/list/typeahead',
+//    remote: '/list/typeahead',
+//    datumTokenizer: function (d) {
+//        return d;
+//    },
+//    queryTokenizer: Bloodhound.tokenizers.whitespace
+//});
+//
+////engine.add([{ val: 'one' }, { val: 'two' }]);
+//
+//engine.initialize();
+//
+//$('#command').typeahead({
+//        minLength: 2,
+//        highlight: true,
+//        hint: true
+//    },
+//    {
+//        name: 'commands',
+//        displayKey: 'val',
+//        source: engine.ttAdapter()
+//    });

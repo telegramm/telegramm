@@ -148,3 +148,8 @@ h6 {
 .entry pre a {
     cursor: default;
 }
+
+.tt-dropdown-menu {
+    background-color: #073642;
+    color: #d33682;
+}
