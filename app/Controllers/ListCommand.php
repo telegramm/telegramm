@@ -53,8 +53,8 @@ class ListCommand
 
         $rtn = [];
 
-        foreach ($repository->getList() as $val) {
-            $rtn[] = ['val' => $val];
+        foreach ($repository->all() as $val) {
+            $rtn[] = ['val' => $val['name'], 'desc' => $val['title']];
         }
 
         return JsonResponse::create($rtn);

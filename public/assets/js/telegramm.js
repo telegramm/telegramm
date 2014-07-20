@@ -1,4 +1,3 @@
-$('input[name="command"]').focus();
 
 $('#sender').submit(function(e){
     e.preventDefault();
@@ -54,27 +53,30 @@ $('#sender').submit(function(e){
 
 });
 
-//var engine = new Bloodhound({
-//    name: 'commands',
-//    prefetch: '/list/typeahead',
-//    remote: '/list/typeahead',
-//    datumTokenizer: function (d) {
-//        return d;
-//    },
-//    queryTokenizer: Bloodhound.tokenizers.whitespace
-//});
-//
-////engine.add([{ val: 'one' }, { val: 'two' }]);
-//
-//engine.initialize();
-//
-//$('#command').typeahead({
-//        minLength: 2,
-//        highlight: true,
-//        hint: true
-//    },
-//    {
-//        name: 'commands',
-//        displayKey: 'val',
-//        source: engine.ttAdapter()
-//    });
+var commandsList = new Bloodhound({
+    name: 'commandList',
+    prefetch: {
+        url: '/list/typeahead',
+        ttl: 0
+    },
+    datumTokenizer: Bloodhound.tokenizers.obj.whitespace('val'),
+    queryTokenizer: Bloodhound.tokenizers.whitespace
+});
+
+commandsList.initialize();
+
+$('#command').typeahead({
+        minLength: 1,
+        highlight: true,
+        hint: true
+    },
+    {
+        name: 'commandList',
+        displayKey: 'val',
+        source: commandsList.ttAdapter(),
+        templates: {
+            suggestion: Handlebars.compile('<span class="name">{{val}}</span>{{#if desc}} *- {{desc}}{{/if}}')
+        }
+    });
+
+$('#command').focus();

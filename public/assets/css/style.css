@@ -150,6 +150,18 @@ h6 {
 }
 
 .tt-dropdown-menu {
+    width: 102%;
     background-color: #073642;
+}
+
+.tt-dropdown-menu .name {
+    color: #b58900;
+}
+
+.tt-dropdown-menu strong {
     color: #d33682;
+}
+
+.twitter-typeahead{
+    width: 97%;
 }

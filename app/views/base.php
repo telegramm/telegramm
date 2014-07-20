@@ -62,6 +62,7 @@
 <!-- Placed at the end of the document so the pages load faster -->
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
 <script src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
+<script src="/assets/js/handlebars-v1.3.0.js"></script>
 <script src="/assets/js/typeahead.bundle.min.js"></script>
 <script src="/assets/js/telegramm.js"></script>
 </body>
