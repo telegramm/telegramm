@@ -31,7 +31,7 @@ $('#sender').submit(function(e){
 
             $('input[name="command"]').val($(this).attr('rel'));
 
-            $('input[name="command"]').parent('form').submit();
+            $('input[name="command"]').parents('form').submit();
         });
 
         $('input[name="command"]').val('');
