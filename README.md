@@ -1,6 +1,8 @@
 Telegramm
 =========
 
+[![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/telegramm/telegramm/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/telegramm/telegramm/?branch=master) [![Build Status](https://scrutinizer-ci.com/g/telegramm/telegramm/badges/build.png?b=master)](https://scrutinizer-ci.com/g/telegramm/telegramm/build-status/master)
+
 Command Types
 -------------
 
